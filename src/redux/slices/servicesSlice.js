@@ -16,12 +16,11 @@ const servicesSlice = createSlice({
     setServices: (state, action) => {
       state.services = action.payload;
     },
-
     filterServices: (state, action) => {
       const { search, category } = action.payload;
       state.filteredServices = state.services.filter(
         (service) =>
-          (search === "" || service.name.toLowerCase().includes(search)) &&
+          (search === "" || service.name.toLowerCase().includes(search.toLowerCase())) &&
           (category === "" || service.category === category)
       );
     },
