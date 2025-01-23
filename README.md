@@ -55,14 +55,20 @@ Follow these steps to get the project up and running:
 ## 📸 Screenshots
 
 Home Page
+<img width="1440" alt="Home" src="https://github.com/user-attachments/assets/d142e529-e27a-48b7-ad9c-ac9f4eb4c80c" />
+
 
 Cart Page
+<img width="1440" alt="CartPage" src="https://github.com/user-attachments/assets/590178d0-21fd-4f47-964d-876c00752963" />
 
 Checkout Page
+<img width="1440" alt="Checkout Page" src="https://github.com/user-attachments/assets/8c66d424-7c96-4dc2-9e46-aa0b0a553a24" />
 
 Receipt Generation
+<img width="1440" alt="Receipt Page" src="https://github.com/user-attachments/assets/53bb42fe-1e1c-4ade-8388-ef70845464df" />
 
 Analytics Page
+<img width="1440" alt="Analytics Page" src="https://github.com/user-attachments/assets/1523f993-519c-4239-bbeb-0a12eb039400" />
 
 ---
 
