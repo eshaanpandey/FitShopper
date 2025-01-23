@@ -27,7 +27,16 @@ function CartPage() {
     <div className="container mx-auto p-4 bg-gray-50">
       <h1 className="text-2xl font-bold text-gray-800 mb-4">Your Cart</h1>
       {cart.length === 0 ? (
-        <p className="text-gray-500">Your cart is empty.</p>
+        <div className="text-center text-gray-500">
+          <p>Your cart is empty.</p>
+          <p>No transactions have been made till now.</p>
+          <button
+            onClick={() => navigate("/home")}
+            className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          >
+            Make Purchases
+          </button>
+        </div>
       ) : (
         <>
           {cart.map((item) => (
