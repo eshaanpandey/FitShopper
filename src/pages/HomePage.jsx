@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../redux/slices/cartSlice";
-import { setServices, filterServices } from "../redux/slices/servicesSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { filterServices } from "../redux/slices/servicesSlice";
 import ServiceCard from "../components/ServiceCard";
+import { addToCart } from "../redux/slices/cartSlice";
 import { motion } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
 
@@ -13,12 +13,7 @@ function HomePage() {
   const [animationKey, setAnimationKey] = useState(uuidv4());
 
   useEffect(() => {
-    const mockServices = [
-      { id: 1, name: "Yoga Class", description: "Relax and rejuvenate.", price: 20 },
-      { id: 2, name: "Therapy Session", description: "Talk with a professional.", price: 50 },
-      { id: 3, name: "Cooking Workshop", description: "Learn to cook.", price: 30 },
-    ];
-    dispatch(setServices(mockServices));
+    dispatch(filterServices({ search: "", category: "" }));
   }, [dispatch]);
 
   useEffect(() => {
@@ -49,7 +44,7 @@ function HomePage() {
       />
 
       <motion.div
-        key={animationKey} 
+        key={animationKey}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         initial="hidden"
         animate="visible"

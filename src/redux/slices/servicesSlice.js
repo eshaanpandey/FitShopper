@@ -1,24 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
+import mockServices from "../../assets/mockServices";
 
 const initialState = {
-  services: [
-    { id: 1, name: "Yoga Class", category: "Fitness", price: 20 },
-    { id: 2, name: "Therapy Session", category: "Therapy", price: 50 },
-    { id: 3, name: "Cooking Workshop", category: "Workshops", price: 30 },
-  ],
-  filteredServices: [],
+  filteredServices: mockServices, // Initial services
 };
 
 const servicesSlice = createSlice({
   name: "services",
   initialState,
   reducers: {
-    setServices: (state, action) => {
-      state.services = action.payload;
-    },
     filterServices: (state, action) => {
       const { search, category } = action.payload;
-      state.filteredServices = state.services.filter(
+      state.filteredServices = mockServices.filter(
         (service) =>
           (search === "" || service.name.toLowerCase().includes(search.toLowerCase())) &&
           (category === "" || service.category === category)
@@ -27,6 +20,6 @@ const servicesSlice = createSlice({
   },
 });
 
-export const { setServices, filterServices } = servicesSlice.actions;
+export const { filterServices } = servicesSlice.actions;
 export const selectServices = (state) => state.services.filteredServices;
 export default servicesSlice.reducer;
