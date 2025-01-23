@@ -3,14 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../redux/slices/cartSlice";
 import { setServices, filterServices } from "../redux/slices/servicesSlice";
 import ServiceCard from "../components/ServiceCard";
-import { motion } from "framer-motion"; // Import Framer Motion
-import { v4 as uuidv4 } from "uuid"; // Import UUID for unique key generation
+import { motion } from "framer-motion";
+import { v4 as uuidv4 } from "uuid";
 
 function HomePage() {
   const dispatch = useDispatch();
   const services = useSelector((state) => state.services.filteredServices);
   const [searchTerm, setSearchTerm] = useState("");
-  const [animationKey, setAnimationKey] = useState(uuidv4()); // Generate a unique key for animations
+  const [animationKey, setAnimationKey] = useState(uuidv4());
 
   useEffect(() => {
     const mockServices = [
@@ -26,7 +26,6 @@ function HomePage() {
   }, [searchTerm, dispatch]);
 
   useEffect(() => {
-    // Update the animation key to force re-trigger on refresh
     setAnimationKey(uuidv4());
   }, []);
 
@@ -48,9 +47,9 @@ function HomePage() {
         onChange={handleSearchChange}
         className="w-full border border-gray-300 rounded-lg p-3 mb-6 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
-      {/* Key added to re-trigger animation on refresh */}
+
       <motion.div
-        key={animationKey} // Unique key ensures animation triggers on refresh
+        key={animationKey} 
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         initial="hidden"
         animate="visible"
@@ -59,7 +58,7 @@ function HomePage() {
           visible: {
             opacity: 1,
             transition: {
-              staggerChildren: 0.3, // Stagger effect for children
+              staggerChildren: 0.3,
             },
           },
         }}
@@ -68,8 +67,8 @@ function HomePage() {
           <motion.div
             key={service.id}
             variants={{
-              hidden: { opacity: 0, x: -50 }, // Start slightly offscreen to the left
-              visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }, // Animate into view
+              hidden: { opacity: 0, x: -50 },
+              visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
             }}
           >
             <ServiceCard service={service} onAddToCart={handleAddToCart} />

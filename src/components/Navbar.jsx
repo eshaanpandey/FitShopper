@@ -29,7 +29,16 @@ function Header() {
           >
             Home
           </NavLink>
-
+          <NavLink
+            to="/analytics"
+            className={({ isActive }) =>
+              `text-lg transition duration-200 ${
+                isActive ? "border-b-2" : "hover:text-yellow-300"
+              }`
+            }
+          >
+            Analytics
+          </NavLink>
           <Link to="/cart" className="relative flex items-center group">
             <FaShoppingCart size={24} className="group-hover:text-yellow-300 transition duration-200" />
             {cartCount > 0 && (
